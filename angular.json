@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ang-movies": {
+    "movie-finder": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,17 +13,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ang-movies",
+            "outputPath": "dist/movie-finder",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -41,6 +42,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -62,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang-movies:build"
+            "browserTarget": "movie-finder:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ang-movies:build:production"
+              "browserTarget": "movie-finder:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ang-movies:build"
+            "browserTarget": "movie-finder:build"
           }
         },
         "test": {
@@ -110,15 +112,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ang-movies:serve"
+            "devServerTarget": "movie-finder:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ang-movies:serve:production"
+              "devServerTarget": "movie-finder:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ang-movies"
+  "defaultProject": "movie-finder"
 }
